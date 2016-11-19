@@ -2,9 +2,22 @@
 
 require "./lib/availability"
 require "json"
+require "time"
 
+TIME_FORMAT = "%H:%M:%S"
 
 file = File.read('./availability_slots.json')
 data = JSON.parse(file)
 appointments  = data["availability_slots"]
 booked_appointments = []
+
+
+loop do
+puts "What time would you like to book?"
+
+user_input = gets
+request = Time.parse(user_input).strftime(TIME_FORMAT)
+
+puts "Your booking is at:-"
+puts Availability.new(appointments, booked_appointments).find_availability(request)
+end
