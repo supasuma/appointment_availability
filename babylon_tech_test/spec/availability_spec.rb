@@ -19,4 +19,9 @@ describe Availability do
     expect(availability.booked_appointments).to eq booked_appointments
   end
 
+  it "is able to book an available appointment" do
+    availability.find_availability("08:00:00")
+    expect(availability.booked_appointments).to eq booked_appointment
+  end
+
 end
