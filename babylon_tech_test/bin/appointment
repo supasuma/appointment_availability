@@ -1,1 +1,12 @@
 #!/usr/bin/env ruby
+
+require "./lib/availability"
+require "json"
+
+
+file = File.read('./availability_slots.json')
+data = JSON.parse(file)
+appointments  = data["availability_slots"]
+booked_appointments = []
+
+p appointments
