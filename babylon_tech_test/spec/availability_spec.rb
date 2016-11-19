@@ -40,4 +40,14 @@ describe Availability do
     expect(availability.booked_appointments).to eq booked_appointments
   end
 
+  it "won't book an appointment before 8am but will find earliest available" do
+    availability.find_availability("07:10:00")
+    expect(availability.booked_appointments).to eq booked_appointments
+  end
+
+  it "won't book an appointment after 3pm" do
+    availability.find_availability("16:10:00")
+    expect(availability.booked_appointments).to eq []
+  end
+
 end
