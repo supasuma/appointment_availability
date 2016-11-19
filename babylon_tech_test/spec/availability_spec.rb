@@ -24,4 +24,12 @@ describe Availability do
     expect(availability.booked_appointments).to eq booked_appointment
   end
 
+  it "won't book the same appointment twice" do
+    booked_appointments = [{"time"=>"08:00:00", "slot_size"=>10, "doctor_id"=>1},
+                          {"time"=>"08:00:00", "slot_size"=>10, "doctor_id"=>2}]
+    availability.find_availability("08:00:00")
+    availability.find_availability("08:00:00")
+    expect(availability.booked_appointments).to eq booked_appointments
+  end
+
 end
