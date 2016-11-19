@@ -32,4 +32,12 @@ describe Availability do
     expect(availability.booked_appointments).to eq booked_appointments
   end
 
+  it "if appointment unavailable it will book the next available" do
+    booked_appointments = [{"time"=>"08:10:00", "slot_size"=>10, "doctor_id"=>1},
+                          {"time"=>"08:20:00", "slot_size"=>10, "doctor_id"=>1}]
+    availability.find_availability("08:10:00")
+    availability.find_availability("08:10:00")
+    expect(availability.booked_appointments).to eq booked_appointments
+  end
+
 end
