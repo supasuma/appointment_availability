@@ -33,10 +33,7 @@ puts Availability.new(appointments).find_availability(request)
 puts "Please confirm you would like this booking? please enter Y or N"
 user_answer = $stdin.gets.chomp
 
-
 if user_answer.upcase == "Y"
   data["availability_slots"] = appointments
   File.open("./availability_slots.json", "w") { |file_json| file_json.write(data.to_json) }
 end
-
-puts data
