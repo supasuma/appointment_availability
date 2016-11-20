@@ -50,4 +50,21 @@ describe Availability do
     expect(availability.booked_appointments).to eq []
   end
 
+  it "won't book at appointment with an incorrect time interval" do
+    availability.find_availability("07:15:00")
+    expect(availability.booked_appointments).to eq []
+  end
+
+  it "will return a message if no appointments are available" do
+    book_all_available_slots
+    expect(availability.find_availability("08:00:00")).to eq "There are no appointments available today"
+  end
+
+  def book_all_available_slots
+    availability.find_availability("08:00:00")
+    availability.find_availability("08:00:00")
+    availability.find_availability("08:00:00")
+    availability.find_availability("08:00:00")
+  end
+
 end
