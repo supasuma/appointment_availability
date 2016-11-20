@@ -9,16 +9,16 @@ class Availability
   end
 
   def find_availability(request)
-    if no_appts_avail?
-      return "There are no appointments available today"
-    else
-      avail_appt = appointments.select {|appt| appt['time'] == request }
-      !avail_appt.empty? ? book_appointment(avail_appt) : next_avail_appt(request)
-    end
+    no_appts_avail? ? "No appointments available" : select_available_appt(request)
   end
 
   private
 
+  def select_available_appt(request)
+    avail_appt = appointments.select {|appt| appt['time'] == request }
+    !avail_appt.empty? ? book_appointment(avail_appt) : next_avail_appt(request)
+  end
+  
   def book_appointment(avail_appt)
     appointments.delete(avail_appt[0])
     return avail_appt[0]["time"]

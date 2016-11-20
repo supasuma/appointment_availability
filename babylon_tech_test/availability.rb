@@ -29,7 +29,7 @@ end
 request = Time.parse(user_input).strftime(TIME_FORMAT)
 
 puts "Your booking is at:-"
-puts Availability.new(appointments, booked_appointments).find_availability(request)
+puts Availability.new(appointments).find_availability(request)
 
 puts "Please confirm you would like this booking? please enter Y or N"
 user_answer = $stdin.gets

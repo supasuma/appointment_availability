@@ -54,7 +54,7 @@ describe Availability do
 
   it "will return a message if no appointments are available" do
     book_all_available_slots
-    expect(availability.find_availability("08:00:00")).to eq "There are no appointments available today"
+    expect(availability.find_availability("08:00:00")).to eq "No appointments available"
   end
 
   def book_all_available_slots
