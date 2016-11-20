@@ -2,11 +2,10 @@ class Availability
 
   TIME_FORMAT = "%H:%M:%S"
 
-  attr_reader :appointments, :booked_appointments
+  attr_reader :appointments
 
-  def initialize(appointments, booked_appointments)
+  def initialize(appointments)
     @appointments = appointments
-    @booked_appointments = booked_appointments
   end
 
   def find_availability(request)
@@ -21,7 +20,6 @@ class Availability
   private
 
   def book_appointment(avail_appt)
-    booked_appointments << avail_appt[0]
     appointments.delete(avail_appt[0])
     return avail_appt[0]["time"]
   end
