@@ -5,7 +5,7 @@
 # tests for this last minute class - if you would like to see the original script file
 # do let me know.
 
-require_relative "availability.rb"
+require "./lib/availability.rb"
 require "json"
 require "time"
 
