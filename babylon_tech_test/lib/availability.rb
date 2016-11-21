@@ -2,7 +2,7 @@ class Availability
 
   TIME_FORMAT = "%H:%M:%S"
   ADD_TEN_MINS = 600
-  CLINIC_CLOSED = "15:00:00"
+  CLINIC_CLOSED = "15:01:00"
 
   attr_reader :appointments
 
@@ -11,7 +11,7 @@ class Availability
   end
 
   def find_availability(request)
-    no_appts_avail? ? "No appointments available" : select_available_appt(request)
+    no_appts_avail? ? nil : select_available_appt(request)
   end
 
   private
@@ -27,14 +27,16 @@ class Availability
   end
 
   def next_avail_appt(request)
-    return "There are no appointments after 3pm" unless Time.parse(request) < Time.parse(CLINIC_CLOSED)
-    request = (Time.parse(request) + ADD_TEN_MINS).strftime(TIME_FORMAT)
-    find_availability(request)
+    if Time.parse(request) > Time.parse(CLINIC_CLOSED)
+       nil
+    else
+      request = (Time.parse(request) + ADD_TEN_MINS).strftime(TIME_FORMAT)
+      find_availability(request)
+    end
   end
 
   def no_appts_avail?
     appointments.empty?
   end
-
 
 end

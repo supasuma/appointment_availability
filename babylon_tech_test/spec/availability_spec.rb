@@ -52,9 +52,9 @@ describe Availability do
     expect(availability.appointments).to eq appointments
   end
 
-  it "will return a message if no appointments are available" do
+  it "will return a message if TIME_FORMAT_CHECKtments are available" do
     book_all_available_slots
-    expect(availability.find_availability("08:00:00")).to eq "No appointments available"
+    expect(availability.find_availability("08:00:00")).to eq nil
   end
 
   def book_all_available_slots
