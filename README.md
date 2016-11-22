@@ -33,6 +33,14 @@ I would like to be able to request a time.
 As a patient
 So that I know what time my appointment is
 I would like to see my time printed as confirmation.
+
+As patient
+if my requested appointment time is unavailable
+I would like to have the next available appointment booked.
+
+As a doctor
+So that I am not leaving patients waiting
+I do not want a single appointment slot to be booked more than once.
 ```
 ### Instructions provided for this tech test
 
