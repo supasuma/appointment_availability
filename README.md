@@ -1,4 +1,4 @@
-# babylon_tech_test
+# appointment_availability
 
 This command line application allows patients to request doctors appointments.  The core functionality has been created using pure Ruby and is tested using RSpec.  
 
@@ -13,12 +13,12 @@ Clone this repo
 $ bundle
 ```
 ```
-navigate to the root directory (unfortunately this is 2 folders deep)
+navigate to the root directory
 ```
 Enter the below into the command line either with an appointment time as shown, or without and the app will prompt you to enter a time.
 
 ```
-$ ./interface.rb 8:40
+$ ./lib/interface.rb 8:40
 ```
 
 ### User Stories
