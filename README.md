@@ -12,6 +12,9 @@ Clone this repo
 ```
 $ bundle
 ```
+```
+navigate to the root directory (unfortunately this is 2 folders deep)
+```
 Enter the below into the command line either with an appointment time as shown, or without and the app will prompt you to enter a time.
 
 ```
