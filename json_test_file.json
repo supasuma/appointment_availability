@@ -1,0 +1,9 @@
+{
+  "availability_slots": [
+    {
+      "time": "08:20:00",
+      "slot_size": 10,
+      "doctor_id": 1
+    }
+  ]
+}

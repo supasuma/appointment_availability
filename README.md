@@ -21,6 +21,10 @@ Enter the below into the command line either with an appointment time as shown, 
 $ ./lib/interface.rb 8:40
 ```
 
+```
+To run the tests you will need to comment out the script at the bottom of interface.rb
+```
+
 ### User Stories
 ```
 

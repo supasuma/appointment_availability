@@ -11,7 +11,7 @@ class Availability
 
     def initialize(json_file)
         @json_file = json_file
-        @appointment_hash = Appointment_parser.new(json_file)
+        @appointment_hash = AppointmentParser.new(json_file)
         @appointments = appointment_hash.slots['availability_slots']
     end
 
@@ -33,8 +33,7 @@ class Availability
     end
 
     def update_appointments_file
-        appointment_hash.slots['availability_slots'] = appointments
-        File.open(json_file, 'w') { |json_file| json_file.write(appointment_hash.slots.to_json) }
+        appointment_hash.update_json(json_file, appointment_hash.slots)
     end
     # def next_avail_appt(request)
     #     if Time.parse(request) > Time.parse(CLINIC_CLOSED)

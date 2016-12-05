@@ -65,4 +65,4 @@ class Interface
     # end
 end
 
-Interface.new(ARGV.first || nil).prompt_user_input
+# Interface.new(ARGV.first || nil).prompt_user_input
